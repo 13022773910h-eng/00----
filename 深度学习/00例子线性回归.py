@@ -63,6 +63,11 @@ for epoch in range(epochs):
 
 
 
+# ===== 训练完，查看 w 和 b =====
+print('\n===== 训练结果 =====')
+print('学到的权重 w =', model.linear.weight.item())
+print('学到的偏置 b =', model.linear.bias.item())
+print('真实公式: y = 2x + 1')
 
 
 
