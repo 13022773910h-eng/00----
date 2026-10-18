@@ -70,6 +70,12 @@ print('学到的偏置 b =', model.linear.bias.item())
 print('真实公式: y = 2x + 1')
 
 
+with torch.no_grad():
+    predicted = model(torch.from_numpy(x_train)).numpy()
+print('预测值为：', predicted)
 
 
-
+# 保存：只保存模型参数（state_dict，推荐，文件体积更小、更安全）
+torch.save(model.state_dict(), 'model.pkl')
+# 读取：先实例化和原来结构完全一样的model，再加载权重
+model.load_state_dict(torch.load('model.pkl'))
